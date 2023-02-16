@@ -40,7 +40,9 @@ export const ContentInfoHeader = styled.div`
 export const ContentInputsLogin = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+  /* border: 1px solid red; */
+  width: 60%;
 `;
 export const ContentRegister = styled.div`
   display: flex;

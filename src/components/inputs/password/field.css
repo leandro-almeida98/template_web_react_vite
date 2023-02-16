@@ -1,0 +1,23 @@
+.InputPasswordControled fieldset {
+    border-color: transparent;
+    background-color: #fff;
+    box-shadow: 0px 0px 6px #bebebe, -2px -2px 6px #ffffff;
+  }
+  
+  .InputPasswordControled .MuiInputBase-root:hover :active fieldset {
+    /* border-color: #dbdbdb; */
+  }
+  
+  .InputPasswordControled .MuiInputBase-root:hover fieldset {
+    /* border-color: transparent; */
+  }
+  
+  .InputPasswordControled input {
+  }
+  
+  .InputPasswordControled label {
+  }
+  
+  .InputPasswordControled {
+    /* background-color: #fff; */
+  }

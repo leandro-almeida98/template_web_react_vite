@@ -1,30 +1,15 @@
 import React from "react";
 import { Container } from "./styles";
-// import { Input, InputProps } from "rsuite";
-import { Input, InputGroup, InputProps } from "rsuite";
-import EyeIcon from "@rsuite/icons/legacy/Eye";
-import EyeSlashIcon from "@rsuite/icons/legacy/EyeSlash";
+import TextField, { TextFieldProps } from "@mui/material/TextField";
+import "./field.css";
 
-interface IInputPasswordControled extends InputProps {
-  style: React.CSSProperties;
-}
+type IPropsComponent = {};
+type IInputPasswordControled = TextFieldProps & IPropsComponent;
 
 const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
-  const { style } = props;
-  const [visible, setVisible] = React.useState(false);
+  const {} = props;
 
-  const handleChange = () => {
-    setVisible(!visible);
-  };
-
-  return (
-    <InputGroup inside style={style}>
-      <Input type={visible ? "text" : "password"} {...props} />
-      <InputGroup.Button onClick={handleChange}>
-        {visible ? <EyeIcon /> : <EyeSlashIcon />}
-      </InputGroup.Button>
-    </InputGroup>
-  );
+  return <TextField className="InputTextControled" {...props} />;
 };
 
 export default InputPasswordControled;

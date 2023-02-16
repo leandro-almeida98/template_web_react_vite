@@ -33,12 +33,12 @@ const Home: React.FC<IHome> = (props) => {
           SE CADASTRE AQUI MESMO NO YVIDEOS
         </ContentInfoHeaderSubTitle>
         <ContentInputsLogin>
-          <InputTextControled
-            placeholder="Email"
-            style={{ width: 350, height: 49 }}
+          <InputTextControled label="Email" placeholder="Insira o seu e-mail" />
+          <InputPasswordControled
+            label="Senha"
+            placeholder="insira sua senha"
           />
-          <InputPasswordControled placeholder="Senha" style={{ width: 350 }} />
-          <ContentRecoverPassword>
+          {/* <ContentRecoverPassword>
             <BttnDefault
               text="Recuperar Senha"
               appearance="subtle"
@@ -46,7 +46,7 @@ const Home: React.FC<IHome> = (props) => {
               cStyle={{ boxShadow: "none" }}
               style={{ width: 110, height: 29 }}
             />
-          </ContentRecoverPassword>
+          </ContentRecoverPassword> */}
 
           <BttnDefault
             text="Login"
