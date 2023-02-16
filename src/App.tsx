@@ -5,7 +5,10 @@ import "./App.css";
 import Routes from "./routes/";
 // import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
-
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 import GlobalStyles from "./styles/GlobalStyles";
 import { lightTheme, blueTheme, darkTheme } from "./themes";
 import { PersistGate } from "redux-persist/lib/integration/react";
