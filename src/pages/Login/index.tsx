@@ -42,14 +42,18 @@ const Home: React.FC<IHome> = (props) => {
             <BttnDefault
               text="Recuperar Senha"
               variant="text"
-              style={{ height: 19, color: "#dddd" }}
+              style={{ color: "#969ba3" }}
             />
           </ContentRecoverPassword>
 
           <BttnDefault text="Login" style={{ width: "100%", height: 49 }} />
         </ContentInputsLogin>
 
-        <ContentRegister>REGISTRE-SE AQUI</ContentRegister>
+        <BttnDefault
+          text="REGISTRE-SE AQUI"
+          variant="text"
+          style={{ marginTop: 25, color: "#969ba3" }}
+        />
       </ContentInfoLogin>
     </Container>
   );

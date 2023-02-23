@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   width: 100vw;
   background: rgb(255, 255, 255);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, #dde6fa 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #e1e59b 100%);
 `;
 
 export const ContentAnnouncement = styled.div`
@@ -17,7 +17,7 @@ export const ImageBackground = styled.div`
   display: flex;
   border-radius: 50px;
   flex: 1;
-  background-image: url("https://www.acessa.com/_midias/jpg/2023/01/26/blaze-144999.jpg");
+  background-image: url("https://img.freepik.com/fotos-premium/ilustracao-de-rasterizacao-do-homem-trabalhando-na-mesa-no-escritorio-um-jovem-em-uma-camiseta-amarela-senta-se-em-um-pe-a-pe-em-fones-de-ouvido-com-um-telefone-e-bebida-quente-em-uma-caneca-de-cacto-3d-render-artwork_579956-2714.jpg?w=2000");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +30,7 @@ export const ContentInfoLogin = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 `;
 
 export const ContentInfoHeader = styled.div`
@@ -46,7 +46,10 @@ export const ContentInputsLogin = styled.div`
 `;
 export const ContentRegister = styled.div`
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  margin-top: 20px;
+  font-size: 16px;
+  color: #43414b;
 `;
 export const ContentInfoHeaderTitle = styled.div`
   font-weight: bold;
