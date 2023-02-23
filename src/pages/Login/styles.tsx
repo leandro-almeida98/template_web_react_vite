@@ -4,18 +4,18 @@ export const Container = styled.div`
   display: flex;
   width: 100vw;
   background: rgb(255, 255, 255);
-  background: linear-gradient(90deg, #ffffff 0%, #e1e59b 100%);
+  /* flex-direction: column; */
 `;
 
 export const ContentAnnouncement = styled.div`
   display: flex;
   /* border: 1px solid red; */
   flex: 1.6;
-  padding: 50px;
+  /* padding: 50px; */
 `;
 export const ImageBackground = styled.div`
   display: flex;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   flex: 1;
   background-image: url("https://img.freepik.com/fotos-premium/ilustracao-de-rasterizacao-do-homem-trabalhando-na-mesa-no-escritorio-um-jovem-em-uma-camiseta-amarela-senta-se-em-um-pe-a-pe-em-fones-de-ouvido-com-um-telefone-e-bebida-quente-em-uma-caneca-de-cacto-3d-render-artwork_579956-2714.jpg?w=2000");
   background-position: center;
@@ -40,7 +40,7 @@ export const ContentInfoHeader = styled.div`
 export const ContentInputsLogin = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 2em;
   /* border: 1px solid red; */
   width: 60%;
 `;

@@ -33,20 +33,28 @@ const Home: React.FC<IHome> = (props) => {
           SE CADASTRE AQUI MESMO NO YVIDEOS
         </ContentInfoHeaderSubTitle>
         <ContentInputsLogin>
-          <InputTextControled label="Email" placeholder="Insira o seu e-mail" />
+          <InputTextControled
+            label="Email"
+            placeholder="Insira o seu e-mail"
+            style={{ width: "100%", height: "5.1vh" }}
+          />
           <InputPasswordControled
             label="Senha"
             placeholder="insira sua senha"
+            style={{ width: "100%", height: "5.1vh" }}
           />
           <ContentRecoverPassword>
             <BttnDefault
               text="Recuperar Senha"
               variant="text"
-              style={{ color: "#969ba3" }}
+              style={{ color: "#969ba3", height: "3.8vh" }}
             />
           </ContentRecoverPassword>
 
-          <BttnDefault text="Login" style={{ width: "100%", height: 49 }} />
+          <BttnDefault
+            text="Login"
+            style={{ width: "100%", height: "5.1vh" }}
+          />
         </ContentInputsLogin>
 
         <BttnDefault
