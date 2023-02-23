@@ -1,20 +1,17 @@
-import React from "react";
-import { Container } from "./styles";
-import { Button, ButtonToolbar, ButtonProps, ButtonToolbarProps } from "rsuite";
+import * as React from "react";
+import Button, { ButtonProps } from "@mui/material/Button";
+
 interface IBttnDefault extends ButtonProps {
   text: string;
-  cStyle?: React.CSSProperties;
 }
 
 const BttnDefault: React.FC<IBttnDefault> = (props) => {
-  const { text, cStyle } = props;
+  const { text } = props;
 
   return (
-    <Container style={cStyle}>
-      <ButtonToolbar>
-        <Button {...props}>{text}</Button>
-      </ButtonToolbar>
-    </Container>
+    <Button variant="contained" {...props}>
+      {text}
+    </Button>
   );
 };
 

@@ -3,7 +3,6 @@ import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import "./App.css";
 import Routes from "./routes/";
-// import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -14,7 +13,6 @@ import { lightTheme, blueTheme, darkTheme } from "./themes";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { persistor, store } from "./redux/persistor";
 type Theme = "light" | "dark" | "blue";
-// import store from "./redux/store";
 
 const App = () => {
   const [theme, setTheme] = useState<Theme>("light");

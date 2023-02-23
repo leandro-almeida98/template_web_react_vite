@@ -38,21 +38,15 @@ const Home: React.FC<IHome> = (props) => {
             label="Senha"
             placeholder="insira sua senha"
           />
-          {/* <ContentRecoverPassword>
+          <ContentRecoverPassword>
             <BttnDefault
               text="Recuperar Senha"
-              appearance="subtle"
-              size="xs"
-              cStyle={{ boxShadow: "none" }}
-              style={{ width: 110, height: 29 }}
+              variant="text"
+              style={{ height: 19, color: "#dddd" }}
             />
-          </ContentRecoverPassword> */}
+          </ContentRecoverPassword>
 
-          <BttnDefault
-            text="Login"
-            size="lg"
-            style={{ width: "100%", height: 49 }}
-          />
+          <BttnDefault text="Login" style={{ width: "100%", height: 49 }} />
         </ContentInputsLogin>
 
         <ContentRegister>REGISTRE-SE AQUI</ContentRegister>
