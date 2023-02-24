@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "cypress:open": "cypress open",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -18,7 +19,7 @@
     "@mui/styled-engine-sc": "^5.11.9",
     "@mui/styles": "^5.11.9",
     "@reduxjs/toolkit": "^1.9.1",
-    "cypress": "^12.1.0",
+    "cypress": "^12.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.0",
