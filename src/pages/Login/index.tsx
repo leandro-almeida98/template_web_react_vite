@@ -28,23 +28,26 @@ const Home: React.FC<IHome> = (props) => {
         <ImageBackground />
       </ContentAnnouncement>
       <ContentInfoLogin>
-        <ContentInfoHeaderTitle>Hello Again!</ContentInfoHeaderTitle>
+        <ContentInfoHeaderTitle>Seja Bem-vindo!</ContentInfoHeaderTitle>
         <ContentInfoHeaderSubTitle>
-          SE CADASTRE AQUI MESMO NO YVIDEOS
+          Esse é o meu template de estudos de React Js
         </ContentInfoHeaderSubTitle>
         <ContentInputsLogin>
           <InputTextControled
+            id="input-email"
             label="Email"
             placeholder="Insira o seu e-mail"
             style={{ width: "100%", height: "5.1vh" }}
           />
           <InputPasswordControled
             label="Senha"
+            id="input-password"
             placeholder="insira sua senha"
             style={{ width: "100%", height: "5.1vh" }}
           />
           <ContentRecoverPassword>
             <BttnDefault
+              id="bttn-login"
               text="Recuperar Senha"
               variant="text"
               style={{ color: "#969ba3", height: "3.8vh" }}
