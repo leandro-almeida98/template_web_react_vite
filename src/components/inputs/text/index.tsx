@@ -10,6 +10,7 @@ type IPropsComponent = {
   rules?: any;
   name: string;
   errors: any;
+  defaultValue?: string;
   showError?: boolean;
 };
 type IInputTextControled = TextFieldProps & IPropsComponent;
@@ -21,6 +22,7 @@ const InputTextControled: React.FC<IInputTextControled> = (props) => {
     showError = true,
     required = true,
     errors,
+    defaultValue,
     rules,
   } = props;
   const isError = errors && errors[name];
@@ -28,6 +30,7 @@ const InputTextControled: React.FC<IInputTextControled> = (props) => {
   return (
     <Controller
       name={name}
+      defaultValue={defaultValue ? defaultValue : ""}
       control={control}
       rules={Object.assign({ required: required }, rules)}
       render={({ field: { onChange, value } }) => {

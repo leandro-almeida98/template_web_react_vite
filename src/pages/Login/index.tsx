@@ -102,9 +102,9 @@ const Home: React.FC<IHome> = (props) => {
 
           <BttnDefault
             text="Login"
-            style={{ width: "100%", height: "5.1vh" }}
             disabled={mutation.isLoading}
             type="submit"
+            loading={mutation.isLoading}
           />
         </ContentInputsLogin>
 

@@ -8,6 +8,7 @@ type IPropsComponent = {
   control: any;
   required?: boolean;
   rules?: any;
+  defaultValue?: string;
   name: string;
   errors: any;
   showError?: boolean;
@@ -21,6 +22,7 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
     showError = true,
     required = true,
     errors,
+    defaultValue,
     rules,
   } = props;
   const isError = errors && errors[name];
@@ -29,6 +31,7 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
     <Controller
       name={name}
       control={control}
+      defaultValue={defaultValue ? defaultValue : ""}
       rules={Object.assign({ required: required }, rules)}
       render={({ field: { onChange, value } }) => {
         return (
