@@ -13,6 +13,9 @@ import { lightTheme, blueTheme, darkTheme } from "./themes";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { persistor, store } from "./redux/persistor";
 type Theme = "light" | "dark" | "blue";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 
@@ -31,6 +34,7 @@ const App = () => {
           <ThemeProvider theme={handlerTheme(theme)}>
             <GlobalStyles />
             <Routes />
+            <ToastContainer />
           </ThemeProvider>
         </PersistGate>
       </Provider>

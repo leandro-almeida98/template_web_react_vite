@@ -1,7 +1,17 @@
 import axios from "axios";
-export const fetchPokemons = async () => {
-  const { data } = await axios.get(
-    "https://pokeapi.co/api/v2/pokemon/?limit=50"
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
+import { toast } from "react-toastify";
+
+export const fetch_login = async (data: { usuario: string; senha: string }) => {
+  const { data: response } = await axios.post(
+    "http://jogosapidev.sec.ba.gov.br/api",
+    data
   );
-  return data;
+  return response.data;
 };

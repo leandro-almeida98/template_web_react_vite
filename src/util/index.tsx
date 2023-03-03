@@ -1,4 +1,14 @@
 import { IMenu } from "../system/menu";
+export const handleMsgErrorInResponse = (error) => {
+  console.log("##### -> handleMsgErrorInResponse -> error:", error);
+  return error?.response?.data?.msg
+    ? error?.response?.data?.msg
+    : error.message
+    ? error.message
+    : error.mesage
+    ? error.mesage
+    : "Erro Desconhecido";
+};
 export const generate_routes_dinamics = (MENU: IMenu[]) => {
   const routesMenu = MENU.map((menu: any) => {
     return {
