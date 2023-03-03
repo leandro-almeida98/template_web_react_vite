@@ -1,5 +1,5 @@
 import { IMenu } from "../system/menu";
-export const handleMsgErrorInResponse = (error) => {
+export const handleMsgErrorInResponse = (error: any) => {
   console.log("##### -> handleMsgErrorInResponse -> error:", error);
   return error?.response?.data?.msg
     ? error?.response?.data?.msg

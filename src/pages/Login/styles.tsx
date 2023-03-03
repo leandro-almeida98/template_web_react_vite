@@ -37,7 +37,7 @@ export const ContentInfoHeader = styled.div`
   display: flex;
   border: 1px solid red;
 `;
-export const ContentInputsLogin = styled.div`
+export const ContentInputsLogin = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2em;

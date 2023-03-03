@@ -16,11 +16,20 @@ import { handleMsgErrorInResponse } from "../../util/index";
 import { useQuery, useMutation } from "react-query";
 import { fetch_login } from "../../api/requisitions";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 
 interface IHome {}
 
 const Home: React.FC<IHome> = (props) => {
-  const {} = props;
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
   // const query = useQuery({
   //   queryKey: ["Todo"],
   //   queryFn: () => fetchLogin,
@@ -60,16 +69,22 @@ const Home: React.FC<IHome> = (props) => {
         <ContentInfoHeaderSubTitle>
           Esse é o meu template de estudos de React Js
         </ContentInfoHeaderSubTitle>
-        <ContentInputsLogin>
+        <ContentInputsLogin onSubmit={handleSubmit(onSubmit)}>
           <InputTextControled
             id="input-email"
+            errors={errors}
+            control={control}
+            name="email"
             label="Email"
             placeholder="Insira o seu e-mail"
             style={{ width: "100%", height: "5.1vh" }}
           />
           <InputPasswordControled
+            control={control}
+            errors={errors}
             label="Senha"
             id="input-password"
+            name="senha"
             placeholder="insira sua senha"
             style={{ width: "100%", height: "5.1vh" }}
           />
@@ -85,12 +100,13 @@ const Home: React.FC<IHome> = (props) => {
           <BttnDefault
             text="Login"
             style={{ width: "100%", height: "5.1vh" }}
-            onClick={() =>
-              mutation.mutate({
-                usuario: "gestorsec@sec.br",
-                senha: "password",
-              })
-            }
+            // onClick={() =>
+            // mutation.mutate({
+            //   usuario: "gestorsec@sec.br",
+            //   senha: "password",
+            // })
+            // }
+            type="submit"
           />
         </ContentInputsLogin>
 
