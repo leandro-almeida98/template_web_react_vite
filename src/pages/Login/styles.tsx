@@ -69,10 +69,10 @@ export const ContentRecoverPassword = styled.div`
   font-weight: normal;
   font-size: 16px;
   color: #43414b;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   /* border: 1px solid red; */
   justify-content: flex-end;
   align-items: flex-end;
-
-  padding: 0 5px;
+  flex-direction: column;
+  /* padding: 0 5px; */
 `;

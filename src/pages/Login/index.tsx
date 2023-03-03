@@ -29,6 +29,7 @@ const Home: React.FC<IHome> = (props) => {
 
   const onSubmit = (data: any) => {
     console.log(data);
+    mutation.mutate(data);
   };
   // const query = useQuery({
   //   queryKey: ["Todo"],
@@ -74,21 +75,21 @@ const Home: React.FC<IHome> = (props) => {
             id="input-email"
             errors={errors}
             control={control}
-            name="email"
+            name="usuario"
             label="Email"
             placeholder="Insira o seu e-mail"
-            style={{ width: "100%", height: "5.1vh" }}
           />
-          <InputPasswordControled
-            control={control}
-            errors={errors}
-            label="Senha"
-            id="input-password"
-            name="senha"
-            placeholder="insira sua senha"
-            style={{ width: "100%", height: "5.1vh" }}
-          />
+
           <ContentRecoverPassword>
+            <InputPasswordControled
+              control={control}
+              errors={errors}
+              label="Senha"
+              id="input-password"
+              name="senha"
+              style={{ width: "100%" }}
+              placeholder="insira sua senha"
+            />
             <BttnDefault
               id="bttn-login"
               text="Recuperar Senha"
