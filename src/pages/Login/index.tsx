@@ -1,82 +1,51 @@
 import React from "react";
 import BttnDefault from "../../components/buttons/default";
 import InputTextControled from "../../components/inputs/text";
-import { Button, ButtonToolbar } from "rsuite";
-
 import {
   Container,
   ContentAnnouncement,
-  ContentInfoHeader,
   ContentInfoHeaderSubTitle,
   ContentInfoHeaderTitle,
   ContentInfoLogin,
   ContentInputsLogin,
   ContentRecoverPassword,
-  ContentRegister,
   ImageBackground,
 } from "./styles";
 import InputPasswordControled from "../../components/inputs/password";
 import { handleMsgErrorInResponse } from "../../util/index";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
-import axios from "axios";
+import { useQuery, useMutation } from "react-query";
+import { fetch_login } from "../../api/requisitions";
+import { toast } from "react-toastify";
+
 interface IHome {}
-import { ToastContainer, toast } from "react-toastify";
+
 const Home: React.FC<IHome> = (props) => {
   const {} = props;
-  const queryClient = useQueryClient();
-  const fetch_login = async (data: { usuario: string; senha: string }) => {
-    const { data: response } = await axios.post(
-      "http://jogosapidev.sec.ba.gov.br/api",
-      data
-    );
-    return response.data;
-  };
-
-  const keyQuery = "Login";
   // const query = useQuery({
-  //   queryKey: [keyQuery],
+  //   queryKey: ["Todo"],
   //   queryFn: () => fetchLogin,
   //   onSuccess: () => {
-  //     toast.success("Sucesso na requisição", { toastId: keyQuery });
+  //     toast.success("Sucesso na requisição", { toastId: "Todo" });
   //   },
   //   onError: (error) => {
   //     toast.error(error.message);
   //   },
   // });
-  // const { isLoading, isError, error, mutate } = useMutation(fetchLogin);
-  // const { mutate, isLoading } = useMutation(
-  //   fetchLogin({ usuario: "", senha: "" }),
-  //   {
-  //     onSuccess: (data) => {
-  //       console.log(data);
-  //       const message = "success";
-  //       alert(message);
-  //     },
-  //     onError: () => {
-  //       alert("there was an error");
-  //     },
-  //     onSettled: () => {
-  //       queryClient.invalidateQueries("create");
-  //     },
-  //   }
-  // );
 
   const mutation = useMutation(
-    (newTodo) => {
-      return axios.post("http://jogosapidev.sec.ba.gov.br/api/auth", newTodo);
+    (newTodo: any) => {
+      return fetch_login(newTodo);
     },
     {
       onSuccess: () => {
-        toast.success("Sucesso na requisição", { toastId: keyQuery });
+        toast.success("Sucesso na requisição", { toastId: "login" });
       },
       onError: (error) => {
         toast.error(handleMsgErrorInResponse(error));
+      },
+      onSettled: () => {
+        //       queryClient.invalidateQueries("create");
+        console.log("onSettled");
       },
     }
   );
