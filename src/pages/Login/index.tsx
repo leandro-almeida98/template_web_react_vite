@@ -38,7 +38,7 @@ const Home: React.FC<IHome> = (props) => {
     },
     {
       onSuccess: () => {
-        toast.success("Sucesso na requisição", { toastId: "login" });
+        toast.success("Sucesso na requisição");
       },
       onError: (error) => {
         toast.error(handleMsgErrorInResponse(error));
