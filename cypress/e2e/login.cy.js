@@ -11,13 +11,13 @@ describe('Teste na tela de Login', () => {
     })
     it('Validação input email', ()=>{
         cy.get('#input-email').type('leandro.almeida98@hotmail.com');
-        cy.get('#input-email')  // or .create-name, maybe a typo in the question
+        cy.get('#input-email')  
         .invoke('val')
         .should('equal', 'leandro.almeida98@hotmail.com')
     })
     it('Validação input senha', ()=>{
         cy.get('#input-password').type('123456789');
-        cy.get('#input-password')  // or .create-name, maybe a typo in the question
+        cy.get('#input-password')  
         .invoke('val')
         .should('equal', '123456789')
     })
@@ -28,7 +28,7 @@ describe('Teste na tela de Login', () => {
         cy.get('#form-login').submit();
         cy.contains('Credenciais de acesso inválidas!')
     })
-    it('Validação login certo', () => {
+    it('Validação login correto', () => {
         cy.get('#input-email').click();
         cy.get('#input-email').type('gestorsec@sec.br');
         cy.get('#input-password').type('password');
