@@ -74,6 +74,7 @@ const Home: React.FC<IHome> = (props) => {
           <InputTextControled
             id="input-email"
             errors={errors}
+            disabled={mutation.isLoading}
             control={control}
             name="usuario"
             label="Email"
@@ -84,6 +85,7 @@ const Home: React.FC<IHome> = (props) => {
             <InputPasswordControled
               control={control}
               errors={errors}
+              disabled={mutation.isLoading}
               label="Senha"
               id="input-password"
               name="senha"
@@ -101,12 +103,7 @@ const Home: React.FC<IHome> = (props) => {
           <BttnDefault
             text="Login"
             style={{ width: "100%", height: "5.1vh" }}
-            // onClick={() =>
-            // mutation.mutate({
-            //   usuario: "gestorsec@sec.br",
-            //   senha: "password",
-            // })
-            // }
+            disabled={mutation.isLoading}
             type="submit"
           />
         </ContentInputsLogin>
