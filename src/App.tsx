@@ -13,6 +13,8 @@ import { lightTheme, blueTheme, darkTheme } from "./themes";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { persistor, store } from "./redux/persistor";
 type Theme = "light" | "dark" | "blue";
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
 
 const App = () => {
   const [theme, setTheme] = useState<Theme>("light");
@@ -23,14 +25,16 @@ const App = () => {
   };
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider theme={handlerTheme(theme)}>
-          <GlobalStyles />
-          <Routes />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider theme={handlerTheme(theme)}>
+            <GlobalStyles />
+            <Routes />
+          </ThemeProvider>
+        </PersistGate>
+      </Provider>
+    </QueryClientProvider>
   );
 };
 

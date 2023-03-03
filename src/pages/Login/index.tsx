@@ -16,11 +16,33 @@ import {
   ImageBackground,
 } from "./styles";
 import InputPasswordControled from "../../components/inputs/password";
-
+import { fetchPokemons } from "../../api/requisitions";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
+import axios from "axios";
 interface IHome {}
 
 const Home: React.FC<IHome> = (props) => {
   const {} = props;
+  const queryClient = useQueryClient();
+
+  const { isLoading, error, data, isFetching } = useQuery({
+    queryKey: ["repoData"],
+    queryFn: () =>
+      axios
+        .get("https://pokeapi.co/api/v2/pokemon/?limit=10")
+        .then((res) => res.data),
+  });
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + JSON.stringify(error?.message);
+  console.log("data>", data);
 
   return (
     <Container>
