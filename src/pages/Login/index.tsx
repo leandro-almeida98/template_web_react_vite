@@ -26,6 +26,7 @@ const Home: React.FC<IHome> = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [sucessLogin, setSucessLogin] = React.useState(false);
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -48,9 +49,11 @@ const Home: React.FC<IHome> = (props) => {
     },
     {
       onSuccess: () => {
+        setSucessLogin(true);
         toast.success("Sucesso na requisição");
       },
       onError: (error) => {
+        setSucessLogin(false);
         toast.error(handleMsgErrorInResponse(error));
       },
       onSettled: () => {
@@ -65,12 +68,12 @@ const Home: React.FC<IHome> = (props) => {
       <ContentAnnouncement>
         <ImageBackground />
       </ContentAnnouncement>
-      <ContentInfoLogin>
+      <ContentInfoLogin id={sucessLogin ? "login-sucess" : "login-error"}>
         <ContentInfoHeaderTitle>Seja Bem-vindo!</ContentInfoHeaderTitle>
         <ContentInfoHeaderSubTitle>
           Esse é o meu template de estudos de React Js
         </ContentInfoHeaderSubTitle>
-        <ContentInputsLogin onSubmit={handleSubmit(onSubmit)}>
+        <ContentInputsLogin id="form-login" onSubmit={handleSubmit(onSubmit)}>
           <InputTextControled
             id="input-email"
             errors={errors}
