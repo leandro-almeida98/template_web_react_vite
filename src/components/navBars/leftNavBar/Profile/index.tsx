@@ -13,11 +13,12 @@ import {
   ImageProfile,
   SubDataProfile,
 } from "./styles";
+import { useDispatch, useSelector } from "react-redux";
 
 interface IProfile {}
 
 const Profile: React.FC<IProfile> = (props) => {
-  const {} = props;
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -31,7 +32,13 @@ const Profile: React.FC<IProfile> = (props) => {
           leandro.sacramento98@gmail.com222222222222
         </SubDataProfile>
       </ContainerInforProfile>
-      <ContainerIconExit>
+      <ContainerIconExit
+        onClick={() =>
+          dispatch({
+            type: "LOGOFF",
+          })
+        }
+      >
         <FiLogOut size={StyleIconMenu.size} color={StyleIconMenu.color} />
       </ContainerIconExit>
     </Container>

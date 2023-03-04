@@ -9,7 +9,7 @@ const Menu: React.FC<any> = (props) => {
   const { menu } = props;
   const dispatch = useDispatch();
   const { menu_active } = useSelector((state: any) => state.menu);
-  console.log("##### -> menu_active", menu_active);
+  // console.log("##### -> menu_active", menu_active);
   const isMenuActive = menu_active == menu.key;
 
   const HandleIconMenu: React.FC<any> = ({ subMenu }) => {

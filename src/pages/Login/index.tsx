@@ -17,6 +17,7 @@ import { useQuery, useMutation } from "react-query";
 import { fetch_login } from "../../api/requisitions";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 interface IHome {}
 
@@ -26,6 +27,10 @@ const Home: React.FC<IHome> = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const dispatch = useDispatch();
+  const user = useSelector((state: any) => state.user);
+  console.log("##### -> user:", user);
+
   const [sucessLogin, setSucessLogin] = React.useState(false);
 
   const onSubmit = (data: any) => {
@@ -51,6 +56,16 @@ const Home: React.FC<IHome> = (props) => {
       onSuccess: () => {
         setSucessLogin(true);
         toast.success("Sucesso na requisição");
+        dispatch({
+          type: "ADD_USER",
+          data: {
+            id: "1",
+            name: "robin",
+            permissions: ["analyze"],
+            roles: ["admin"],
+            isAuthenticated: true,
+          },
+        });
       },
       onError: (error) => {
         setSucessLogin(false);

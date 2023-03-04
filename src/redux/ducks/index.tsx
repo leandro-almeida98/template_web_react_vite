@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
 import menu from "./menu";
-import auth from "./auth";
+import user from "./user";
 
 export default combineReducers({
   menu,
-  auth,
+  user,
 });

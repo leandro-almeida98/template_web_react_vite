@@ -2,7 +2,14 @@ import React, { Suspense } from "react";
 import Layout from "../components/layout/";
 import Login from "../pages/Login";
 import NoPermission from "../pages/NoPermission";
-import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  BrowserRouter,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import MENU from "../system/menu";
 import { generate_routes_dinamics } from "../util/";
@@ -13,18 +20,13 @@ interface IPrivateRoute {
 interface IRoutes {}
 
 const RoutesComponent: React.FC<IRoutes> = (props) => {
-  const user = {
-    id: "1",
-    name: "robin",
-    permissions: ["analyze"],
-    roles: ["admin"],
-    isAuthenticated: true,
-  };
-
+  const user = useSelector((state: any) => state.user);
   const {} = props;
 
   const RoutesDinamic = () => {
-    if (!user.isAuthenticated) return null;
+    const location = useLocation();
+    if (!user.isAuthenticated && location.pathname == "/login") return null;
+
     return (
       <React.Fragment>
         <Layout layout="menuLeft">
@@ -70,6 +72,7 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
 
   return (
     <BrowserRouter>
+      <RoutesDinamic />
       <Routes>
         <Route
           path={`/login`}
@@ -81,7 +84,6 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
           }
         />
       </Routes>
-      <RoutesDinamic />
     </BrowserRouter>
   );
 };
