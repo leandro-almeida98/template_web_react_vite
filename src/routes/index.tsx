@@ -18,12 +18,13 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
     name: "robin",
     permissions: ["analyze"],
     roles: ["admin"],
-    isAuthenticated: false,
+    isAuthenticated: true,
   };
 
   const {} = props;
 
   const RoutesDinamic = () => {
+    if (!user.isAuthenticated) return null;
     return (
       <React.Fragment>
         <Layout layout="menuLeft">
@@ -69,21 +70,18 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
 
   return (
     <BrowserRouter>
-      {!user.isAuthenticated ? (
-        <Routes>
-          <Route
-            path={`/login`}
-            key={"path"}
-            element={
-              <PublicRoutes>
-                <Login />
-              </PublicRoutes>
-            }
-          />
-        </Routes>
-      ) : (
-        <RoutesDinamic />
-      )}
+      <Routes>
+        <Route
+          path={`/login`}
+          key={"path"}
+          element={
+            <PublicRoutes>
+              <Login />
+            </PublicRoutes>
+          }
+        />
+      </Routes>
+      <RoutesDinamic />
     </BrowserRouter>
   );
 };
