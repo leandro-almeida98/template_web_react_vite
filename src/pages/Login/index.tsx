@@ -55,7 +55,7 @@ const Home: React.FC<IHome> = (props) => {
     {
       onSuccess: () => {
         setSucessLogin(true);
-        toast.success("Sucesso na requisição");
+        toast.success("Login efetuado com sucesso!");
         dispatch({
           type: "ADD_USER",
           data: {
