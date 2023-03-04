@@ -1,7 +1,8 @@
 import React, { Suspense } from "react";
 import Layout from "../components/layout/";
 import Login from "../pages/Login";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import NoPermission from "../pages/NoPermission";
+import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 
 import MENU from "../system/menu";
 import { generate_routes_dinamics } from "../util/";
@@ -17,44 +18,72 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
     name: "robin",
     permissions: ["analyze"],
     roles: ["admin"],
-    isAuthenticated: true,
+    isAuthenticated: false,
   };
 
   const {} = props;
 
-  // const router = createBrowserRouter(generate_routes_dinamics(MENU));
-
-  const RoutesPrivates: React.FC<any> = () => {
+  const RoutesDinamic = () => {
     return (
-      <Layout layout="menuLeft">
-        <div>
-          {generate_routes_dinamics(MENU).map((route) => {
-            if (route.isPrivate)
-              return <Route path={route.path} element={route.element} />;
-          })}
-        </div>
-      </Layout>
+      <React.Fragment>
+        <Layout layout="menuLeft">
+          <div>
+            <Routes>
+              {generate_routes_dinamics(MENU).map((route) => {
+                return (
+                  <Route
+                    path={route.path}
+                    // key={"path"}
+                    element={
+                      <AuthenticatedRoutes>{route.element}</AuthenticatedRoutes>
+                    }
+                  />
+                );
+              })}
+            </Routes>
+          </div>
+        </Layout>
+      </React.Fragment>
     );
   };
 
-  // const ProtectedRoutes = (props: any) => {
-  //   const auth = user?.isAuthenticated;
-
-  //   return auth ? <Outlet /> : <Navigate to="/login" />;
-  // };
-
-  // const PublicRoutes = (props: any) => {
-  //   const auth = user?.isAuthenticated;
-
-  //   return auth ? <Navigate to="/dashboard" /> : <Outlet />;
-  // };
+  const AuthenticatedRoutes = ({ children, noAuthenticated = false }: any) => {
+    console.log("##### -> AuthenticatedRoutes -> children:", children);
+    const auth = user?.isAuthenticated;
+    if (noAuthenticated) !auth ? children : <Navigate to="/home" />;
+    return auth ? children : <Navigate to="/login" />;
+  };
+  const PublicRoutes = ({ children }: any) => {
+    const auth = user?.isAuthenticated;
+    return !auth ? children : <Navigate to="/home" />;
+  };
+  const PrivateRoutes = ({ children, permission }: any) => {
+    let isPermission = false;
+    for (let i = 0; i < permission.length; i++) {
+      if (user?.permissions.includes(permission[i])) {
+        isPermission = true;
+      }
+    }
+    return isPermission ? children : <Navigate to="/sem-permissao" />;
+  };
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={`/`} key={"path"} element={<Login />} />
-        {/* <RoutesPrivates /> */}
-      </Routes>
+      {!user.isAuthenticated ? (
+        <Routes>
+          <Route
+            path={`/login`}
+            key={"path"}
+            element={
+              <PublicRoutes>
+                <Login />
+              </PublicRoutes>
+            }
+          />
+        </Routes>
+      ) : (
+        <RoutesDinamic />
+      )}
     </BrowserRouter>
   );
 };

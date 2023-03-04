@@ -6,9 +6,10 @@ export const MENU: IMenu[] = [
     title: "Home",
     iconProps: { icon: "mdi:home" },
     href: "/",
-    path: "/",
+    path: "/home",
     element: <div>Home</div>,
     isPrivate: true,
+    isAuthenticated: true,
     permissions: ["Admin"],
   },
   {
@@ -20,6 +21,7 @@ export const MENU: IMenu[] = [
     element: <div>DASHBOARD</div>,
     isPrivate: true,
     permissions: ["Admin"],
+    isAuthenticated: true,
   },
   {
     key: 3,
@@ -27,6 +29,7 @@ export const MENU: IMenu[] = [
     iconProps: { icon: "ph:projector-screen-chart-light" },
     href: "",
     path: "/projetos",
+    isAuthenticated: true,
     element: <div>projetos</div>,
     subMenu: [
       {
@@ -36,6 +39,7 @@ export const MENU: IMenu[] = [
         path: "/projetos/fazfreestyle",
         element: <div>PRJ FazFreestyle</div>,
         isPrivate: true,
+        isAuthenticated: true,
         permissions: ["Admin"],
       },
       {
@@ -45,6 +49,7 @@ export const MENU: IMenu[] = [
         path: "/projetos/barbearia",
         element: <div>PRJ Barbearias</div>,
         isPrivate: true,
+        isAuthenticated: true,
         permissions: ["Admin"],
       },
     ],
@@ -57,6 +62,7 @@ export const MENU: IMenu[] = [
     path: "/Tarefas",
     element: <div>Tarefas</div>,
     isPrivate: true,
+    isAuthenticated: true,
     permissions: ["Admin"],
   },
   {
@@ -66,6 +72,7 @@ export const MENU: IMenu[] = [
     href: "/messages",
     path: "/messages",
     element: <div>Mensagens</div>,
+    isAuthenticated: true,
     isPrivate: true,
     permissions: ["Admin"],
   },
@@ -80,6 +87,7 @@ export const MENUS_CONFIGS: IMenu[] = [
     path: "/configuracoes",
     element: <div>CONFIGURACOES</div>,
     isPrivate: true,
+    isAuthenticated: true,
     permissions: ["Admin"],
   },
   {
@@ -90,6 +98,7 @@ export const MENUS_CONFIGS: IMenu[] = [
     path: "/ajuda",
     element: <div>AJUDA</div>,
     isPrivate: true,
+    isAuthenticated: true,
     permissions: ["Admin"],
   },
 ];
@@ -100,7 +109,8 @@ export const ROUTES: IRoute[] = [
     path: "/login",
     element: <div>CONFIGURACOES</div>,
     isPrivate: false,
-    permissions: ["Admin"],
+    isAuthenticated: false,
+    permissions: ["all"],
   },
 ];
 export default [...MENU, ...MENUS_CONFIGS];
@@ -114,6 +124,7 @@ export interface IMenu {
   element?: any;
   subMenu?: ISubMenu[];
   isPrivate?: boolean;
+  isAuthenticated?: boolean;
   permissions?: string[];
 }
 export interface IRoute {
@@ -122,6 +133,7 @@ export interface IRoute {
   path: string;
   element?: any;
   isPrivate: boolean;
+  isAuthenticated: boolean;
   permissions?: string[];
 }
 interface ISubMenu {
@@ -131,5 +143,6 @@ interface ISubMenu {
   path: string;
   element: any;
   isPrivate: boolean;
+  isAuthenticated: boolean;
   permissions?: string[];
 }
