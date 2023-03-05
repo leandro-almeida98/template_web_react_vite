@@ -8,9 +8,6 @@ import { Container } from "./styles";
 interface ILeftNavBar {}
 
 const LeftNavBar: React.FC<ILeftNavBar> = (props) => {
-  const {} = props;
-  console.log("RECARREGOU LeftNavBar");
-
   return (
     <Container>
       <NameSystem />

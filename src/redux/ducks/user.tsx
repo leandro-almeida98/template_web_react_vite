@@ -1,13 +1,9 @@
 import { createActions, createReducer } from "reduxsauce";
-import { persistor } from "../persistor"; // importe o persistor do seu store
-import { useDispatch, useSelector } from "react-redux";
-
 /**
  * Action types & creators
  */
 export const { Types, Creators } = createActions({
   addUser: ["data"],
-  logoff: [],
 });
 
 /**
@@ -41,25 +37,13 @@ const addUser = (state: any = INITIAL_STATE, action: any) => {
   });
 };
 
-const logoff = (state: any = INITIAL_STATE, action: any) => {
-  return (state = {
-    ...state,
-    profile: {
-      id: null,
-      name: "",
-    },
-    permissions: [],
-    roles: [],
-    isAuthenticated: false,
-    token: null,
-  });
-};
-// export
-
+// export const handleLogout = () => {
+//   persistor.purge();
+//   location.reload();
+// };
 /**
  * Reducer
  */
 export default createReducer(INITIAL_STATE, {
   [Types.ADD_USER]: addUser,
-  [Types.LOGOFF]: logoff,
 });

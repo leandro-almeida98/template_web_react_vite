@@ -28,13 +28,8 @@ const Home: React.FC<IHome> = (props) => {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.user);
-  console.log("##### -> user:", user);
-
-  const [sucessLogin, setSucessLogin] = React.useState(false);
 
   const onSubmit = (data: any) => {
-    // console.log(data);
     mutation.mutate(data);
   };
   // const query = useQuery({
@@ -54,7 +49,6 @@ const Home: React.FC<IHome> = (props) => {
     },
     {
       onSuccess: () => {
-        setSucessLogin(true);
         toast.success("Login efetuado com sucesso!");
         dispatch({
           type: "ADD_USER",
@@ -68,12 +62,11 @@ const Home: React.FC<IHome> = (props) => {
         });
       },
       onError: (error) => {
-        setSucessLogin(false);
         toast.error(handleMsgErrorInResponse(error));
       },
       onSettled: () => {
         //       queryClient.invalidateQueries("create");
-        console.log("onSettled");
+        // console.log("onSettled");
       },
     }
   );
@@ -83,7 +76,7 @@ const Home: React.FC<IHome> = (props) => {
       <ContentAnnouncement>
         <ImageBackground />
       </ContentAnnouncement>
-      <ContentInfoLogin id={sucessLogin ? "login-sucess" : "login-error"}>
+      <ContentInfoLogin>
         <ContentInfoHeaderTitle>Seja Bem-vindo!</ContentInfoHeaderTitle>
         <ContentInfoHeaderSubTitle>
           Esse é o meu template de estudos de React Js

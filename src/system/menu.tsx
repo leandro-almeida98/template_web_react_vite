@@ -3,18 +3,7 @@ import { IconProps } from "@iconify/react";
 export const MENU: IMenu[] = [
   {
     key: 1,
-    title: "Home2",
-    iconProps: { icon: "mdi:home" },
-    href: "/",
-    path: "/home",
-    element: <div>Home2</div>,
-    isPrivate: true,
-    isAuthenticated: true,
-    permissions: ["Admin"],
-  },
-  {
-    key: 1333,
-    title: "Home2",
+    title: "Home",
     iconProps: { icon: "mdi:home" },
     href: "/",
     path: "/home",

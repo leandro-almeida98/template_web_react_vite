@@ -16,19 +16,14 @@ import {
 } from "./styles";
 
 interface IProfile {}
+export const handleLogout = () => {
+  persistor.purge();
+  location.reload();
+};
 
 const Profile: React.FC<IProfile> = (props) => {
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    console.log("##### -> handleLogout -> handleLogout:");
-    // Disparar a ação de logoff
-    dispatch({
-      type: "LOGOFF",
-    });
-    // Limpar o armazenamento persistente
-    persistor.purge();
-  };
   return (
     <Container>
       <ContainerImageProfile>
