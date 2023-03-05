@@ -1,5 +1,7 @@
 import { createActions, createReducer } from "reduxsauce";
-import { MENU } from "../../system/menu";
+import { persistor } from "../persistor"; // importe o persistor do seu store
+import { useDispatch, useSelector } from "react-redux";
+
 /**
  * Action types & creators
  */
@@ -16,7 +18,7 @@ const INITIAL_STATE = {
     id: null,
     name: "",
   },
-  permissions: [],
+  permissions: ["default", "Admin"],
   roles: [],
   isAuthenticated: false,
   token: "",
@@ -52,6 +54,7 @@ const logoff = (state: any = INITIAL_STATE, action: any) => {
     token: null,
   });
 };
+// export
 
 /**
  * Reducer

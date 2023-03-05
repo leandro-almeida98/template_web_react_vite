@@ -34,7 +34,7 @@ const Home: React.FC<IHome> = (props) => {
   const [sucessLogin, setSucessLogin] = React.useState(false);
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    // console.log(data);
     mutation.mutate(data);
   };
   // const query = useQuery({
@@ -61,7 +61,7 @@ const Home: React.FC<IHome> = (props) => {
           data: {
             id: "1",
             name: "robin",
-            permissions: ["analyze"],
+            permissions: ["Admin"],
             roles: ["admin"],
             isAuthenticated: true,
           },

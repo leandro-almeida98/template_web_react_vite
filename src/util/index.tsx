@@ -1,4 +1,5 @@
 import { IMenu } from "../system/menu";
+import { SubMenu } from "./../components/navBars/leftNavBar/Menu/styles";
 export const handleMsgErrorInResponse = (error: any) => {
   console.log("##### -> handleMsgErrorInResponse -> error:", error);
   return error?.response?.data?.msg
@@ -14,6 +15,7 @@ export const generate_routes_dinamics = (MENU: IMenu[]) => {
     return {
       path: menu?.path,
       element: menu?.element,
+      permissions: menu?.permissions,
     };
   });
   const routesSubMenu = () => {
@@ -24,6 +26,7 @@ export const generate_routes_dinamics = (MENU: IMenu[]) => {
           subMenus.push({
             path: subMenu?.path,
             element: subMenu?.element,
+            permissions: menu?.permissions,
           });
         });
     });
