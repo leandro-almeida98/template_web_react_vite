@@ -10,8 +10,6 @@ const Menus: React.FC<IMenus> = (props) => {
   return (
     <ContainerMenus>
       {menu?.menus_filter.map((menu: any, index: any) => {
-        console.log("##### -> {menu?.menus_filter.map -> menu:", menu);
-
         return <Menu menu={menu} key={menu.key} />;
       })}
     </ContainerMenus>

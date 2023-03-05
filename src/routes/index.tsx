@@ -26,32 +26,26 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
 
   const RoutesDinamic = () => {
     const location = useLocation();
-    console.log("##### -> RoutesDinamic -> location:", location);
+    // console.log("##### -> RoutesDinamic -> location:", location);
     return (
       <React.Fragment>
         <Layout layout="menuLeft">
-          <div>
-            <Routes>
-              {generate_routes_dinamics(MENU).map((route) => {
-                console.log(
-                  "##### -> {generate_routes_dinamics -> route:",
-                  route
-                );
-                return (
-                  <Route
-                    path={route.path}
-                    key={route.path}
-                    element={
-                      <PrivateRoutes permission={route.permissions}>
-                        {route.element}
-                      </PrivateRoutes>
-                    }
-                  />
-                );
-              })}
-              <Route path="*" element={<Navigate to="/home" />} />
-            </Routes>
-          </div>
+          <Routes>
+            {generate_routes_dinamics(MENU).map((route) => {
+              return (
+                <Route
+                  path={route.path}
+                  key={route.path}
+                  element={
+                    <PrivateRoutes permission={route.permissions}>
+                      {route.element}
+                    </PrivateRoutes>
+                  }
+                />
+              );
+            })}
+            <Route path="*" element={<Navigate to="/home" />} />
+          </Routes>
         </Layout>
       </React.Fragment>
     );
@@ -68,7 +62,7 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
     return !auth ? children : <Navigate to="/home" />;
   };
   const PrivateRoutes = ({ children, permission }: any) => {
-    console.log("##### -> PrivateRoutes -> permission:", permission);
+    // console.log("##### -> PrivateRoutes -> permission:", permission);
     let isPermission = false;
     for (let i = 0; i < permission.length; i++) {
       if (user?.permissions.includes(permission[i])) {

@@ -25,7 +25,7 @@ export const MENU: IMenu[] = [
   },
   {
     key: 3,
-    title: "Projetosa",
+    title: "Projetos",
     iconProps: { icon: "ph:projector-screen-chart-light" },
     href: "",
     path: "/projetos",
