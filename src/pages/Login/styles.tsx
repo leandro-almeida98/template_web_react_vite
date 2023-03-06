@@ -11,6 +11,9 @@ export const ContentAnnouncement = styled.div`
   display: flex;
   /* border: 1px solid red; */
   flex: 1.6;
+  height: 99.2vh;
+  justify-content: center;
+  /* align-items: center; */
   /* padding: 50px; */
 `;
 export const ImageBackground = styled.div`

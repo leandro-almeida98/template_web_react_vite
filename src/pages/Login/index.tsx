@@ -18,6 +18,8 @@ import { fetch_login } from "../../api/requisitions";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import Lottie from "lottie-react";
+import personprogramming from "../../lottie/personprogramming.json";
 
 interface IHome {}
 
@@ -73,8 +75,12 @@ const Home: React.FC<IHome> = (props) => {
 
   return (
     <Container>
-      <ContentAnnouncement>
-        <ImageBackground />
+      <ContentAnnouncement style={{ backgroundColor: "#FED756" }}>
+        {/* <ImageBackground /> */}
+        <Lottie
+          style={{ backgroundColor: "#FED756" }}
+          animationData={personprogramming}
+        />
       </ContentAnnouncement>
       <ContentInfoLogin>
         <ContentInfoHeaderTitle>Seja Bem-vindo!</ContentInfoHeaderTitle>
