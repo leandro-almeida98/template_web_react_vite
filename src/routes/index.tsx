@@ -52,7 +52,7 @@ const RoutesComponent: React.FC<IRoutes> = (props) => {
   };
 
   const AuthenticatedRoutes = ({ children, noAuthenticated = false }: any) => {
-    console.log("##### -> AuthenticatedRoutes -> children:", children);
+    // console.log("##### -> AuthenticatedRoutes -> children:", children);
     const auth = user?.isAuthenticated;
     if (noAuthenticated) !auth ? children : <Navigate to="/home" />;
     return auth ? children : <Navigate to="/login" />;

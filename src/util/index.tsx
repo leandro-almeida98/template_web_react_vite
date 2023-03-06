@@ -1,7 +1,7 @@
 import { IMenu } from "../system/menu";
 import { SubMenu } from "./../components/navBars/leftNavBar/Menu/styles";
 export const handleMsgErrorInResponse = (error: any) => {
-  console.log("##### -> handleMsgErrorInResponse -> error:", error);
+  // console.log("##### -> handleMsgErrorInResponse -> error:", error);
   return error?.response?.data?.msg
     ? error?.response?.data?.msg
     : error.message
