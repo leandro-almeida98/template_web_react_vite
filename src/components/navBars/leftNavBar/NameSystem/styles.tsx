@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import imgProfile from "../../../../assets/logo.png";
-
+import { LOGO_SYSTEM } from "../../../../system/info";
 export const BackgroundImage = styled.div`
-  background-image: url(${imgProfile});
+  background-image: url(${LOGO_SYSTEM});
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

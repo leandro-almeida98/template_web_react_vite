@@ -22,6 +22,7 @@ type IPropsComponent = {
   errors: any;
   showError?: boolean;
   label: String;
+  id: String;
 };
 type IInputPasswordControled = OutlinedInputProps & IPropsComponent;
 
@@ -29,6 +30,7 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
   const {
     control,
+    id,
     name,
     label,
     showError = true,
@@ -84,6 +86,7 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
         />
       </FormControl>
       <div
+        id={`${id}-helper-text`}
         className="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root"
         style={{
           display: "flex",
