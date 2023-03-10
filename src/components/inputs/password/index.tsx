@@ -1,11 +1,8 @@
 import React from "react";
-import { Container } from "./styles";
-import TextField, { TextFieldProps } from "@mui/material/TextField";
 import "./field.css";
 import { Controller } from "react-hook-form";
 
 import {
-  Checkbox,
   FormControl,
   InputLabel,
   OutlinedInput,
@@ -14,12 +11,8 @@ import {
   IconButton,
 } from "@mui/material";
 
-import {
-  Visibility,
-  VisibilityOff,
-  Google,
-  Facebook,
-} from "@mui/icons-material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 type IPropsComponent = {
   control: any;
   required?: boolean;
@@ -28,6 +21,7 @@ type IPropsComponent = {
   name: string;
   errors: any;
   showError?: boolean;
+  label: String;
 };
 type IInputPasswordControled = OutlinedInputProps & IPropsComponent;
 
@@ -36,6 +30,7 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
   const {
     control,
     name,
+    label,
     showError = true,
     required = true,
     errors,
@@ -51,7 +46,7 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
           error={isError ? true : false}
           htmlFor="outlined-adornment-password"
         >
-          Password
+          {label}
         </InputLabel>
 
         <Controller
@@ -67,25 +62,13 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
                 value={value}
                 className="InputTextControled"
                 error={isError ? true : false}
-                // helperText={
-                //   (showError && isError
-                //     ? isError.message
-                //       ? isError.message
-                //       : "Campo obrigatório"
-                //     : "") as unknown as React.ReactNode
-                // }
                 {...props}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="Altere a visibilidade do password"
                       onClick={() => {
-                        console.log("ALTERANDO VISIBILIDADE DO PASSWORD");
                         setPasswordVisible(!passwordVisible);
-                        console.log(
-                          "##### -> passwordVisible:",
-                          passwordVisible
-                        );
                       }}
                       onMouseDown={() => {}}
                       edge="end"
@@ -107,7 +90,6 @@ const InputPasswordControled: React.FC<IInputPasswordControled> = (props) => {
           marginRight: 0,
           paddingLeft: 14,
           width: "100%",
-          // border: "1px solid red",
         }}
       >
         {
