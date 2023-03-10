@@ -10,6 +10,7 @@ export const BackgroundImage = styled.div`
 `;
 export const Container = styled.div`
   display: flex;
-  height: 100px;
-  padding: 20px 10px;
+  height: 150px;
+  padding: 0 10px;
+  margin-bottom: 20px;
 `;
