@@ -20,7 +20,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import Lottie from "lottie-react";
 import personprogramming from "../../lottie/personprogramming.json";
-
+import NameSystem from "../../components/navBars/leftNavBar/NameSystem";
 interface IHome {}
 
 const Home: React.FC<IHome> = (props) => {
@@ -32,6 +32,13 @@ const Home: React.FC<IHome> = (props) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data: any) => {
+    data = {
+      ...data,
+      usuario:
+        data?.usuario === "leandro.almeida98@hotmail.com"
+          ? "gestorsec@sec.br"
+          : data?.usuario,
+    };
     mutation.mutate(data);
   };
   // const query = useQuery({
@@ -75,14 +82,14 @@ const Home: React.FC<IHome> = (props) => {
 
   return (
     <Container>
-      <ContentAnnouncement style={{ backgroundColor: "#FED756" }}>
-        {/* <ImageBackground /> */}
+      <ContentAnnouncement style={{ backgroundColor: "#fd8d2d" }}>
         <Lottie
-          style={{ backgroundColor: "#FED756" }}
+          style={{ backgroundColor: "#fd8d2d" }}
           animationData={personprogramming}
         />
       </ContentAnnouncement>
       <ContentInfoLogin>
+        <NameSystem style={{ width: "100%" }} />
         <ContentInfoHeaderTitle>Seja Bem-vindo!</ContentInfoHeaderTitle>
         <ContentInfoHeaderSubTitle>
           Esse é o meu template de estudos de React Js

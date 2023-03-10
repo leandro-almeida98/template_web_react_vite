@@ -4,21 +4,16 @@ export const Container = styled.div`
   display: flex;
   width: 100vw;
   background: rgb(255, 255, 255);
-  /* flex-direction: column; */
 `;
 
 export const ContentAnnouncement = styled.div`
   display: flex;
-  /* border: 1px solid red; */
   flex: 1.6;
-  height: 99.2vh;
   justify-content: center;
-  /* align-items: center; */
-  /* padding: 50px; */
+  overflow: hidden;
 `;
 export const ImageBackground = styled.div`
   display: flex;
-  /* border-radius: 50px; */
   flex: 1;
   background-image: url(${background});
   background-position: center;
@@ -33,7 +28,6 @@ export const ContentInfoLogin = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* border: 1px solid green; */
 `;
 
 export const ContentInfoHeader = styled.div`
@@ -44,12 +38,10 @@ export const ContentInputsLogin = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2em;
-  /* border: 1px solid red; */
   width: 60%;
 `;
 export const ContentRegister = styled.div`
   display: flex;
-  /* border: 1px solid red; */
   margin-top: 20px;
   font-size: 16px;
   color: #43414b;
@@ -72,10 +64,7 @@ export const ContentRecoverPassword = styled.div`
   font-weight: normal;
   font-size: 16px;
   color: #43414b;
-  /* margin-bottom: 20px; */
-  /* border: 1px solid red; */
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  /* padding: 0 5px; */
 `;

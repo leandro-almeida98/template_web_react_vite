@@ -1,13 +1,15 @@
 import React from "react";
 import { Container, BackgroundImage } from "./styles";
 
-interface INameSystem {}
+interface INameSystem {
+  style: React.CSSProperties;
+}
 
 const NameSystem: React.FC<INameSystem> = (props) => {
   const {} = props;
 
   return (
-    <Container>
+    <Container {...props}>
       <BackgroundImage />
     </Container>
   );
