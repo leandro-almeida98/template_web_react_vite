@@ -100,8 +100,8 @@ const Home: React.FC<IHome> = (props) => {
           {/* <InputMaskControled
             control={control}
             errors={errors}
-            name="usuario"
-            label="Email2"
+            name="usuario2"
+            label="Email"
             placeholder="insira seu email"
           /> */}
           <InputTextControled

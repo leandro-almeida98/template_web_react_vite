@@ -26,6 +26,7 @@ const InputTextControled: React.FC<IInputTextControled> = (props) => {
     defaultValue,
     rules,
   } = props;
+  const propsTextField = props;
   const isError = errors && errors[name];
 
   return (
@@ -67,6 +68,7 @@ const InputTextControled: React.FC<IInputTextControled> = (props) => {
                     : "") as unknown as React.ReactNode
                 }
                 {...props}
+                {...propsTextField}
                 inputRef={innerRef}
               />
             )}
