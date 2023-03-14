@@ -1,6 +1,7 @@
 import React from "react";
 import BttnDefault from "../../components/buttons/default";
 import InputTextControled from "../../components/inputs/text";
+import InputMaskControled from "../../components/inputs/mask";
 import {
   Container,
   ContentAnnouncement,
@@ -21,6 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Lottie from "lottie-react";
 import personprogramming from "../../lottie/personprogramming.json";
 import NameSystem from "../../components/navBars/leftNavBar/NameSystem";
+
 interface IHome {}
 
 const Home: React.FC<IHome> = (props) => {
@@ -95,6 +97,13 @@ const Home: React.FC<IHome> = (props) => {
           Esse é o meu template de estudos de React Js
         </ContentInfoHeaderSubTitle>
         <ContentInputsLogin id="form-login" onSubmit={handleSubmit(onSubmit)}>
+          {/* <InputMaskControled
+            control={control}
+            errors={errors}
+            name="usuario"
+            label="Email2"
+            placeholder="insira seu email"
+          /> */}
           <InputTextControled
             id="input-email"
             errors={errors}
